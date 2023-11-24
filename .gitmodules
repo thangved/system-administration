@@ -1,0 +1,3 @@
+[submodule "strawhat.com"]
+	path = strawhat.com
+	url = git@github.com:thangved/strawhat.com.git
