@@ -13,6 +13,35 @@
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+
+\lstset{style=mystyle}
+
 \setcounter{MaxMatrixCols}{20}
 
 \title{Bài tập tổng hợp cuối kỳ môn quản trị hệ thống}
@@ -23,6 +52,7 @@
 \tableofcontents
 \listoffigures
 \listoftables
+\lstlistoflistings
 
 \section*{Mô tả bài tập}
 
@@ -225,6 +255,10 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
               \label{figure:stop-firewalld}
           \end{minipage}
 
+          \begin{lstlisting}[language=bash, caption=Dừng tường lửa]
+sudo systemctl stop firewalld
+\end{lstlisting}
+
           \begin{minipage}
               {\linewidth}
               \captionsetup{type=figure}
@@ -233,6 +267,10 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
               \caption{Ngăn tường lửa tự khởi động lại bằng cách sử dụng \texttt{systemctl disable firewalld}}
               \label{figure:disable-firewalld}
           \end{minipage}
+
+          \begin{lstlisting}[language=bash, caption=Ngăn tường lửa tự khởi động lại]
+sudo systemctl disable firewalld
+\end{lstlisting}
 
           Lệnh \texttt{systemctl stop firewalld} \textit{(Hình \ref{figure:stop-firewalld})} dùng để dừng tường lửa ngay lập tức và lệnh \texttt{systemctl disable firewalld} \textit{(Hình \ref{figure:disable-firewalld})} sẽ ngăn việc tường lửa tự khởi động lại sau khi reboot.
 \end{itemize}
@@ -281,6 +319,11 @@ Sau đây là ví dụ về việc tạo tài khoản và đặt mật khẩu ch
     \label{figure:useradd-luffy}
 \end{minipage}
 
+\begin{lstlisting}[language=bash, caption=Tạo và đặt mật khẩu cho tài khoản luffy]
+sudo useradd luffy
+sudo passwd luffy
+\end{lstlisting}
+
 Tương tự như thế với các tài khoản còn lại \textit{(Hình \ref{figure:useradd-other})}.
 
 \begin{minipage}
@@ -291,6 +334,21 @@ Tương tự như thế với các tài khoản còn lại \textit{(Hình \ref{f
     \caption{Tạo và đặt mật khẩu cho các người dùng còn lại}
     \label{figure:useradd-other}
 \end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Tạo và đặt mật khẩu cho các người dùng còn lại]
+sudo useradd nami
+sudo passwd nami
+sudo useradd zoro
+sudo passwd zoro
+sudo useradd usopp
+sudo passwd usopp
+sudo useradd robin
+sudo passwd robin
+sudo useradd sanji
+sudo passwd sanji
+sudo useradd chopper
+sudo passwd chopper
+\end{lstlisting}
 
 Để thêm nhóm người dùng, ta sử dụng lệnh \texttt{groupadd <group-name>} và thêm người dùng vào nhóm bằng lệnh \texttt{usermod -aG <group-name> <username>}.
 Sau đây là ví dụ tạo nhóm \texttt{bangiamdoc} và thêm \texttt{luffy} và \texttt{nami} vào nhóm này \textit{(Hình \ref{figure:groupadd-bangiamdoc})}.
@@ -304,6 +362,12 @@ Sau đây là ví dụ tạo nhóm \texttt{bangiamdoc} và thêm \texttt{luffy} 
     \label{figure:groupadd-bangiamdoc}
 \end{minipage}
 
+\begin{lstlisting}[language=bash, caption=Tạo nhóm \texttt{bangiamdoc} và thêm người dùng vào]
+sudo groupadd bangiamdoc
+sudo usermod -aG bangiamdoc luffy
+sudo usermod -aG bangiamdoc nami
+\end{lstlisting}
+
 Thực hiện tương tự với các nhóm còn lại \textit{(Hình \ref{figure:groupadd-other})}.
 
 \begin{minipage}
@@ -314,6 +378,17 @@ Thực hiện tương tự với các nhóm còn lại \textit{(Hình \ref{figur
     \caption{Tạo các nhóm còn lại và thêm người dùng vào}
     \label{figure:groupadd-other}
 \end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Tạo các nhóm còn lại và thêm người dùng vào]
+sudo groupadd banhang
+sudo usermod -aG banhang zoro
+sudo usermod -aG banhang usopp
+sudo usermod -aG banhang robin
+
+sudo groupadd hanhchinh
+sudo usermod -aG hanhchinh sanji
+sudo usermod -aG hanhchinh chopper
+\end{lstlisting}
 
 Để cấp quyền sudo cho một user, ta chỉ cần thêm user đó vào nhóm \texttt{sudo} hoặc \texttt{wheel}.
 Trong trường hợp này, ta sẽ thêm vào nhóm \texttt{wheel}.
@@ -326,6 +401,10 @@ Trong trường hợp này, ta sẽ thêm vào nhóm \texttt{wheel}.
     \caption{Cấp quyền sudo cho user nami}
     \label{figure:wheel-nami}
 \end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Cấp quyền sudo cho user nami]
+sudo usermod -aG wheel nami
+\end{lstlisting}
 
 \subsection{(10\%)  Cài đặt và cấu hình dịch vụ SSH để cho phép điều khiển từ xa Server}
 
@@ -344,6 +423,11 @@ Trong trường hợp này, ta sẽ thêm vào nhóm \texttt{wheel}.
               \caption{Cài đặt và kích hoạt dịch vụ ssh}
               \label{figure:install-ssh}
           \end{minipage}
+          \begin{lstlisting}[language=bash, caption=Cài đặt và kích hoạt dịch vụ ssh]
+sudo dnf install openssh-server
+sudo systemctl enable sshd
+sudo systemctl start sshd
+\end{lstlisting}
     \item Cấu hình chỉ cho phép thành viên trong ban giám đốc và tài khoản \texttt{b2007210} mới có quyền điều khiển từ xa \hfill \\
           Để cấu hình chỉ cho phép một nhóm người dùng hoặc người dùng có thể sử dụng dịch vụ ssh, ta sẽ cấu hình trong file \texttt{/etc/ssh/sshd\_config} \textit{(Hình \ref{figure:allow-groups-users})}. \\
           \begin{minipage}
@@ -400,6 +484,91 @@ Trong trường hợp này, ta sẽ thêm vào nhóm \texttt{wheel}.
               \item \texttt{mv \textasciitilde/.ssh/id\_rsa.pub \textasciitilde/.ssh/authorized\_keys}: Đổi tên tập tin public key thành \texttt{authorized\_keys}.
               \item \texttt{chmod 600 \textasciitilde/.ssh/authorized\_keys}: Cho phép chủ sở hữu đọc và ghi vào tập tin \texttt{authorized\_keys}.
           \end{itemize}
+\end{enumerate}
+
+\subsection{(10\%) Tạo và phân quyền cho thư mục \texttt{/data}}
+
+Tạo thư mục /data trên server và phân quyền sao cho thành viên ban giám đốc có toàn quyền (read, write và execute), các trưởng phòng có quyền read và execute, các nhân viên không có bất cứ quyền gì. Ngoài ra chỉ chủ sở hữu tập tin có quyền xóa hoặc đổi tên tập tin trong thư mục /data.
+
+
+Để tạo và phân quyền cho thư mục \texttt{/data}, ta thực hiện theo các bước như \textit{Hình \ref{figure:facl}}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=12cm]{images/facl.png}
+    \caption{Tạo và phân quyền cho thư mục \texttt{/data}}
+    \label{figure:facl}
+\end{minipage}
+
+Cụ thể như sau:
+\begin{enumerate}
+    \item Tạo thư mục \texttt{/data}.
+          \begin{lstlisting}[language=bash, caption=Tạo thư mục \texttt{/data}]
+sudo mkdir /data
+\end{lstlisting}
+    \item \textbf{Ban giám đốc} có toàn quyền (read, write, execute) trên thư mục \texttt{/data}
+          \begin{lstlisting}[language=bash, caption=Phân quyền cho ban giám đốc]
+sudo setfacl -m g:bangiamdoc:rwx /data
+\end{lstlisting}
+    \item  \textbf{Trưởng phòng} có quyền read và execute trên thư mục \texttt{/data}
+          \begin{lstlisting}[language=bash, caption=Phân quyền cho trưởng phòng]
+sudo groupadd truongphong
+sudo usermod -aG truongphong zoro
+sudo usermod -aG truongphong sanji
+sudo setfacl -m g:truongphong:rx /data
+\end{lstlisting}
+
+          \begin{itemize}
+              \item [Dòng 1] Tạo nhóm \texttt{truongphong}.
+              \item [Dòng 2] Thêm user \texttt{zoro} vào nhóm \texttt{truongphong}.
+              \item [Dòng 3] Thêm user \texttt{sanji} vào nhóm \texttt{truongphong}.
+              \item [Dòng 4] Phân quyền cho nhóm \texttt{truongphong} có quyền read và execute trên thư mục \texttt{/data}.
+          \end{itemize}
+    \item \textbf{Nhân viên} không có bất cứ quyền gì trên thư mục \texttt{/data}
+          \begin{lstlisting}[language=bash, caption=Phân quyền cho nhân viên]
+sudo setfacl -m other:--- /data
+\end{lstlisting}
+    \item Chỉ chủ sở hữu tập tin có quyền xóa hoặc đổi tên tập tin trong thư mục \texttt{/data}
+          \begin{lstlisting}
+sudo chmod +t /data
+\end{lstlisting}
+\end{enumerate}
+
+\subsection{(5\%) Cài đặt và cấu hình tường lửa trên Server}
+
+Có thể truy cập các dịch vụ DNS, DHCP, SSH, Web, SAMBA trên Server. Các dịch vụ khác KHÔNG cập truy cập được.
+
+Ta sẽ cấu hình như \textit{Hình \ref{figure:config-firewall}}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=12cm]{images/config-firewall.png}
+    \caption{Cấu hình tường lửa trên Server}
+    \label{figure:config-firewall}
+\end{minipage}
+
+Cụ thể như sau:
+\begin{enumerate}
+    \item Tạo một zone mới có tên là \texttt{services}
+          \begin{lstlisting}[language=bash, caption=Tạo zone mới có tên là \texttt{services}]
+sudo firewall-cmd --permanent --new-zone=services
+\end{lstlisting}
+    \item Thêm các dịch vụ DNS, DHCP, SSH, Web, SAMBA vào zone \texttt{services}
+          \begin{lstlisting}[language=bash, caption={Thêm các dịch vụ DNS, DHCP, SSH, Web, SAMBA vào zone \texttt{services}}]
+sudo firewall-cmd --permanent --zone=services --add-service=dns
+sudo firewall-cmd --permanent --zone=services --add-service=dhcp
+sudo firewall-cmd --permanent --zone=services --add-service=ssh
+sudo firewall-cmd --permanent --zone=services --add-service=http
+sudo firewall-cmd --permanent --zone=services --add-service=samba
+\end{lstlisting}
+    \item Khởi động lại dịch vụ tường lửa để áp dụng những thay đổi này
+          \begin{lstlisting}
+sudo systemctl restart firewalld
+\end{lstlisting}
 \end{enumerate}
 
 \end{document}
