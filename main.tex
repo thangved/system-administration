@@ -19,10 +19,10 @@
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},
+    backgroundcolor=\color{mintedbackground},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
@@ -37,7 +37,8 @@
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    tabsize=4
+    tabsize=4,
+    texcl=false,
 }
 
 \lstset{style=mystyle}
@@ -60,7 +61,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
 
 \begin{minipage}{\linewidth}
     \captionsetup{type=figure}
-    \includegraphics[width=12cm]{images/networks.png}
+    \includegraphics[width=\linewidth]{images/networks.png}
     \caption{Sơ đồ hệ thống mạng của công ty Straw Hat}
 \end{minipage}
 
@@ -69,7 +70,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
 \subsection{(10\%) Sử dụng phần mềm VirtualBox cài đặt Server và Desktop:}
 
 \begin{itemize}
-    \item Tạo 1 NAT Network tên "QTHT" có địa chỉ mạng là 192.168.1.0/24. Tắt dịch vụ DHCP có sẵn trên NAT Network "QTHT". \hfill \\
+    \item[--] Tạo 1 NAT Network tên "QTHT" có địa chỉ mạng là 192.168.1.0/24. Tắt dịch vụ DHCP có sẵn trên NAT Network "QTHT". \hfill \\
           \begin{minipage}{\linewidth}
               \captionsetup{type=figure}
               \centering
@@ -79,7 +80,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
 
           Để tắt dịch vụ DHCP mặc định của NAT Network trong VirtualBox, ta bỏ tích tùy chọn "Supports DHCP".
 
-    \item Tạo 2 máy ảo với thông tin như sau: \hfill \\
+    \item[--] Tạo 2 máy ảo với thông tin như sau: \hfill \\
           \begin{minipage}{\linewidth}
               \begin{multicols}{2}
                   \begin{minipage}{\linewidth}
@@ -156,7 +157,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/server-processor.png}
+                        \includegraphics[width=\linewidth]{images/server-processor.png}
                         \caption{Số Core CPU cho Server}
                         \label{figure:server-processor}
                     \end{minipage}
@@ -164,7 +165,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                     \begin{minipage}{\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/server-ram.png}
+                        \includegraphics[width=\linewidth]{images/server-ram.png}
                         \caption{Dung lượng RAM cho Server}
                         \label{figure:server-ram}
                     \end{minipage}
@@ -173,7 +174,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/server-disk.png}
+                        \includegraphics[width=\linewidth]{images/server-disk.png}
                         \caption{Dung lượng ổ cứng cho Server}
                         \label{figure:server-disk}
                     \end{minipage}
@@ -182,7 +183,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/server-network-1.png}
+                        \includegraphics[width=\linewidth]{images/server-network-1.png}
                         \caption{Cấu hình mạng máy Server (1)}
                         \label{figure:server-network-1}
                     \end{minipage}
@@ -191,7 +192,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/server-network-2.png}
+                        \includegraphics[width=\linewidth]{images/server-network-2.png}
                         \caption{Cấu hình mạng máy Server (2)}
                         \label{figure:server-network-2}
                     \end{minipage}
@@ -209,7 +210,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/desktop-processor.png}
+                        \includegraphics[width=\linewidth]{images/desktop-processor.png}
                         \caption{Số Core CPU cho máy Desktop}
                         \label{figure:desktop-processor}
                     \end{minipage}
@@ -218,7 +219,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/desktop-ram.png}
+                        \includegraphics[width=\linewidth]{images/desktop-ram.png}
                         \caption{Dung lượng RAM cho máy Desktop}
                         \label{figure:desktop-ram}
                     \end{minipage}
@@ -227,7 +228,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/desktop-disk.png}
+                        \includegraphics[width=\linewidth]{images/desktop-disk.png}
                         \caption{Dung lượng ổ đĩa cho máy Desktop}
                         \label{figure:desktop-disk}
                     \end{minipage}
@@ -236,13 +237,13 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         {\linewidth}
                         \captionsetup{type=figure}
                         \centering
-                        \includegraphics[width=12cm]{images/desktop-network.png}
+                        \includegraphics[width=\linewidth]{images/desktop-network.png}
                         \caption{Cấu hình mạng cho máy Desktop}
                         \label{figure:desktop-network}
                     \end{minipage}
           \end{enumerate}
-    \item Trong quá trình cài hệ điều hành CentOS 9, tạo 1 tài khoản với username là <Mã số sinh viên>; firstname và lastname là họ tên của sinh viên. Cấp quyền quản trị (sudo) cho tài khoản. Sử dụng tài khoản vừa tạo để thực hiện bài tập tổng hợp (không dùng tài khoản root).
-    \item Tắt dịch vụ tường lửa trên Server. \hfill \\
+    \item[--] Trong quá trình cài hệ điều hành CentOS 9, tạo 1 tài khoản với username là <Mã số sinh viên>; firstname và lastname là họ tên của sinh viên. Cấp quyền quản trị (sudo) cho tài khoản. Sử dụng tài khoản vừa tạo để thực hiện bài tập tổng hợp (không dùng tài khoản root).
+    \item[--] Tắt dịch vụ tường lửa trên Server. \hfill \\
           Để tắt tường lửa ta có thể sử dụng lệnh \texttt{systemctl} hoặc \texttt{service}.
           Ở đây ta sẽ sử dụng lệnh \texttt{systemctl} để làm việc này \textit{(xem Hình \ref{figure:stop-firewalld}) và Hình \ref{figure:disable-firewalld}}. \\
 
@@ -250,7 +251,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/stop-firewalld.png}
+              \includegraphics[width=\linewidth]{images/stop-firewalld.png}
               \caption{Dừng tường lửa bằng cách sử dụng \texttt{systemctl stop firewalld}}
               \label{figure:stop-firewalld}
           \end{minipage}
@@ -263,7 +264,7 @@ sudo systemctl stop firewalld
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/disable-firewalld.png}
+              \includegraphics[width=\linewidth]{images/disable-firewalld.png}
               \caption{Ngăn tường lửa tự khởi động lại bằng cách sử dụng \texttt{systemctl disable firewalld}}
               \label{figure:disable-firewalld}
           \end{minipage}
@@ -314,7 +315,7 @@ Sau đây là ví dụ về việc tạo tài khoản và đặt mật khẩu ch
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/useradd-luffy.png}
+    \includegraphics[width=\linewidth]{images/useradd-luffy.png}
     \caption{Tạo và đặt mật khẩu cho tài khoản luffy}
     \label{figure:useradd-luffy}
 \end{minipage}
@@ -330,7 +331,7 @@ Tương tự như thế với các tài khoản còn lại \textit{(Hình \ref{f
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/useradd-other.png}
+    \includegraphics[width=\linewidth]{images/useradd-other.png}
     \caption{Tạo và đặt mật khẩu cho các người dùng còn lại}
     \label{figure:useradd-other}
 \end{minipage}
@@ -357,7 +358,7 @@ Sau đây là ví dụ tạo nhóm \texttt{bangiamdoc} và thêm \texttt{luffy} 
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/groupadd-bangiamdoc.png}
+    \includegraphics[width=\linewidth]{images/groupadd-bangiamdoc.png}
     \caption{Tạo nhóm bangiamdoc và thêm người dùng vào}
     \label{figure:groupadd-bangiamdoc}
 \end{minipage}
@@ -374,7 +375,7 @@ Thực hiện tương tự với các nhóm còn lại \textit{(Hình \ref{figur
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/groupadd-other.png}
+    \includegraphics[width=\linewidth]{images/groupadd-other.png}
     \caption{Tạo các nhóm còn lại và thêm người dùng vào}
     \label{figure:groupadd-other}
 \end{minipage}
@@ -397,7 +398,7 @@ Trong trường hợp này, ta sẽ thêm vào nhóm \texttt{wheel}.
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/wheel-nami.png}
+    \includegraphics[width=\linewidth]{images/wheel-nami.png}
     \caption{Cấp quyền sudo cho user nami}
     \label{figure:wheel-nami}
 \end{minipage}
@@ -409,8 +410,8 @@ sudo usermod -aG wheel nami
 \subsection{(10\%)  Cài đặt và cấu hình dịch vụ SSH để cho phép điều khiển từ xa Server}
 
 \begin{itemize}
-    \item Chỉ có thành viên ban giám đốc và tài khoản <Mã số sinh viên> mới có quyền điều khiển từ xa Server. Tài khoản root không được nối kết tới server từ xa.
-    \item Chỉ cho phép chứng thực bằng private key, không cho phép chứng thực bằng password. Tạo private/public key cho người dùng <Mã số sinh viên> để có thể SSH tới server.
+    \item[--] Chỉ có thành viên ban giám đốc và tài khoản <Mã số sinh viên> mới có quyền điều khiển từ xa Server. Tài khoản root không được nối kết tới server từ xa.
+    \item[--] Chỉ cho phép chứng thực bằng private key, không cho phép chứng thực bằng password. Tạo private/public key cho người dùng <Mã số sinh viên> để có thể SSH tới server.
 \end{itemize}
 
 \begin{enumerate}
@@ -419,7 +420,7 @@ sudo usermod -aG wheel nami
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/install-ssh.png}
+              \includegraphics[width=\linewidth]{images/install-ssh.png}
               \caption{Cài đặt và kích hoạt dịch vụ ssh}
               \label{figure:install-ssh}
           \end{minipage}
@@ -434,7 +435,7 @@ sudo systemctl start sshd
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/allow-groups-users.png}
+              \includegraphics[width=\linewidth]{images/allow-groups-users.png}
               \caption{Cho phép nhóm \texttt{bangiamdoc} và user \texttt{b2007210} có quyền điều khiển máy tính từ xa}
               \label{figure:allow-groups-users}
           \end{minipage}
@@ -450,13 +451,13 @@ sudo systemctl start sshd
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/ssh-only-pubkey.png}
+              \includegraphics[width=\linewidth]{images/ssh-only-pubkey.png}
               \caption{Cấu hình cho phép truy cập dịch vụ ssh bằng private key}
               \label{figure:ssh-only-pubkey}
           \end{minipage}
           \begin{itemize}
-              \item \texttt{\textbf{PubkeyAuthentication} yes}: Cho phép chứng thực bằng private key.
-              \item \texttt{\textbf{PasswordAuthentication} no}: Không cho phép chứng thực bằng password.
+              \item[--] \texttt{\textbf{PubkeyAuthentication} yes}: Cho phép chứng thực bằng private key.
+              \item[--] \texttt{\textbf{PasswordAuthentication} no}: Không cho phép chứng thực bằng password.
           \end{itemize}
           Sau khi cấu hình xong, ta cần khởi động lại dịch vụ ssh để áp dụng những thay đổi này (dùng lệnh \texttt{systemctl restart sshd}).
 
@@ -465,7 +466,7 @@ sudo systemctl start sshd
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/ssh-keygen.png}
+              \includegraphics[width=\linewidth]{images/ssh-keygen.png}
               \caption{Tạo private key và public key}
               \label{figure:ssh-keygen}
           \end{minipage}
@@ -475,14 +476,20 @@ sudo systemctl start sshd
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=12cm]{images/rename-authorized-keys.png}
+              \includegraphics[width=\linewidth]{images/rename-authorized-keys.png}
               \caption{Đổi tên và phân quyền cho tập tin public key}
               \label{figure:rename-authorized-keys}
           \end{minipage}
 
           \begin{itemize}
-              \item \texttt{mv \textasciitilde/.ssh/id\_rsa.pub \textasciitilde/.ssh/authorized\_keys}: Đổi tên tập tin public key thành \texttt{authorized\_keys}.
-              \item \texttt{chmod 600 \textasciitilde/.ssh/authorized\_keys}: Cho phép chủ sở hữu đọc và ghi vào tập tin \texttt{authorized\_keys}.
+              \item[--] Đổi tên tập tin public key thành \texttt{authorized\_keys}.
+                    \begin{lstlisting}[language=bash, caption=Đổi tên tập tin public key]
+mv ~/.ssh/id\_rsa.pub ~/.ssh/authorized\_keys
+\end{lstlisting}
+              \item[--] Cho phép chủ sở hữu đọc và ghi vào tập tin \texttt{authorized\_keys}.
+                    \begin{lstlisting}[language=bash, caption=Phân quyền cho tập tin \texttt{authorized\_keys}]
+chmod 600 ~/.ssh/authorized\_keys
+\end{lstlisting}
           \end{itemize}
 \end{enumerate}
 
@@ -497,7 +504,7 @@ Tạo thư mục /data trên server và phân quyền sao cho thành viên ban g
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/facl.png}
+    \includegraphics[width=\linewidth]{images/facl.png}
     \caption{Tạo và phân quyền cho thư mục \texttt{/data}}
     \label{figure:facl}
 \end{minipage}
@@ -521,10 +528,10 @@ sudo setfacl -m g:truongphong:rx /data
 \end{lstlisting}
 
           \begin{itemize}
-              \item [Dòng 1] Tạo nhóm \texttt{truongphong}.
-              \item [Dòng 2] Thêm user \texttt{zoro} vào nhóm \texttt{truongphong}.
-              \item [Dòng 3] Thêm user \texttt{sanji} vào nhóm \texttt{truongphong}.
-              \item [Dòng 4] Phân quyền cho nhóm \texttt{truongphong} có quyền read và execute trên thư mục \texttt{/data}.
+              \item [\textbf{Dòng 1}] Tạo nhóm \texttt{truongphong}.
+              \item [\textbf{Dòng 2}] Thêm user \texttt{zoro} vào nhóm \texttt{truongphong}.
+              \item [\textbf{Dòng 3}] Thêm user \texttt{sanji} vào nhóm \texttt{truongphong}.
+              \item [\textbf{Dòng 4}] Phân quyền cho nhóm \texttt{truongphong} có quyền read và execute trên thư mục \texttt{/data}.
           \end{itemize}
     \item \textbf{Nhân viên} không có bất cứ quyền gì trên thư mục \texttt{/data}
           \begin{lstlisting}[language=bash, caption=Phân quyền cho nhân viên]
@@ -546,7 +553,7 @@ Ta sẽ cấu hình như \textit{Hình \ref{figure:config-firewall}}.
     {\linewidth}
     \captionsetup{type=figure}
     \centering
-    \includegraphics[width=12cm]{images/config-firewall.png}
+    \includegraphics[width=\linewidth]{images/config-firewall.png}
     \caption{Cấu hình tường lửa trên Server}
     \label{figure:config-firewall}
 \end{minipage}
@@ -570,5 +577,95 @@ sudo firewall-cmd --permanent --zone=services --add-service=samba
 sudo systemctl restart firewalld
 \end{lstlisting}
 \end{enumerate}
+
+\subsection{(5\%) Cài đặt và cấu hình dịch vụ DHCP trên Server để cấu hình mạng tự động cho các máy Desktop trong nhánh mạng}
+
+\begin{itemize}
+    \item[--] Địa chỉ IP của desktop: trong dãy 192.168.1.100/24 đến 192.168.1.254/24
+    \item[--] Địa chỉ gateway:  192.168.1.1
+    \item[--] DNS server: 192.168.1.2 và 8.8.8.8
+\end{itemize}
+
+Ta sẽ thực hiện theo các bước sau:
+\begin{enumerate}
+    \item Cài đặt dịch vụ DHCP \hfill \\
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/install-dhcp-server.png}
+              \caption{Cài đặt dhcp-server}
+              \label{figure:install-dhcp-server}
+          \end{minipage}
+          \begin{lstlisting}[language=bash, caption=Cài đặt dịch vụ DHCP]
+sudo yum install dhcp-server
+\end{lstlisting}
+    \item Cấu hình dịch vụ dhcp bằng cách chỉnh sửa nội dung file \texttt{/etc/dhcp/dhcpd.conf} \hfill \\
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/dhcpd-conf.png}
+              \caption{Cấu hình dịch vụ dhcp}
+              \label{figure:dhcpd-conf}
+          \end{minipage}
+          Nội dung file \texttt{/etc/dhcp/dhcpd.conf} như sau:
+          \begin{lstlisting}[language=bash, caption=Nội dung file \texttt{/etc/dhcp/dhcpd.conf}]
+subnet 192.168.1.0 netmask 255.255.255.0 {
+    range 192.168.1.100 192.168.1.254;
+
+    option routers 192.168.1.1;
+
+    option domain-name-servers 192.168.1.2, 8.8.8.8;
+    
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+\end{lstlisting}
+          \begin{itemize}
+              \item [\textbf{Dòng 1}] Cấu hình subnet là 255.255.255.0 với địa chỉ mạng là 192.168.1.0.
+              \item [\textbf{Dòng 2}] Cấu hình range địa chỉ IP cho các máy desktop là từ 192.168.1.100 đến 192.168.1.254.
+              \item [\textbf{Dòng 4}] Cấu hình địa chỉ gateway là 192.168.1.1.
+              \item [\textbf{Dòng 6}] Cấu hình địa chỉ DNS server là
+              \item [\textbf{Dòng 8}] Cấu hình thời gian mặc định mà một thiết bị sẽ được cấp phát địa chỉ IP là 600s.
+              \item [\textbf{Dòng 9}] Cấu hình thời gian tối đa mà một thiết bị được cấp địa chỉ IP là 7200s (2h).
+          \end{itemize}
+
+    \item Khởi động dịch vụ dhcp \hfill\\
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/start-enable-dhcpd.png}
+              \caption{Khởi động dịch vụ dhcp}
+              \label{figure:start-enable-dhcpd}
+          \end{minipage}
+          \begin{lstlisting}[language=bash, caption=Khởi động dịch vụ dhcp]
+sudo systemctl start dhcpd
+sudo systemctl enable dhcpd
+\end{lstlisting}
+\end{enumerate}
+
+Sau khi cấu hình xong, ta sẽ kiểm tra lại bằng cách sử dụng máy desktop \textit{(Hình \ref{figure:desktop-ctu-thangved-com})} để kết nối vào mạng \texttt{QTHT} và kiểm tra địa chỉ IP của máy Desktop \textit{(Hình \ref{figure:desktop-ifconfig})}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/desktop-ctu-thangved-com.png}
+    \caption{Truy cập vào internet bằng máy Desktop}
+    \label{figure:desktop-ctu-thangved-com}
+\end{minipage}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/desktop-ifconfig.png}
+    \caption{Kiểm tra địa chỉ IP của máy desktop (192.168.1.100)}
+    \label{figure:desktop-ifconfig}
+\end{minipage}
+
+\subsection{(5\%) Cài đặt và cấu hình dịch vụ máy chủ Web trên Server sử dụng Docker}
 
 \end{document}
