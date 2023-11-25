@@ -242,6 +242,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                         \label{figure:desktop-network}
                     \end{minipage}
           \end{enumerate}
+
     \item[--] Trong quá trình cài hệ điều hành CentOS 9, tạo 1 tài khoản với username là <Mã số sinh viên>; firstname và lastname là họ tên của sinh viên. Cấp quyền quản trị (sudo) cho tài khoản. Sử dụng tài khoản vừa tạo để thực hiện bài tập tổng hợp (không dùng tài khoản root).
     \item[--] Tắt dịch vụ tường lửa trên Server. \hfill
           Để tắt tường lửa ta có thể sử dụng lệnh \texttt{systemctl} hoặc \texttt{service}.
@@ -863,5 +864,127 @@ Sau khi cấu hình xong, ta có thể truy cập vào trang web theo địa ch�
     \item[--] Tất cả người dùng có thể truy cập vào thư mục cá nhân của họ (/home/<username>) trên Server.
     \item[--] Trên Desktop tạo ổ cứng ảo nối kết tới dịch vụ SAMBA trên Server.
 \end{itemize}
+
+\subsubsection{Cài đặt dịch vụ SAMBA}
+
+Để cài đặt dịch vụ SAMBA, ta sử dụng lệnh \texttt{sudo dnf install samba}.
+Sau đó, ta tiến hành cấu hình dịch vụ trong file /etc/samba/smb.conf như sau:
+
+\subsubsection{Thành viên ban giám đốc và trưởng phòng có thể truy cập vào thư mục /data trên Server}
+
+Ta thực hiện cấu hình quyền truy cập vào thư mục /data như \textit{Hình \ref{figure:samba-config-data}}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/samba-config-data.png}
+    \caption{Cấu hình quyền truy cập vào thư mục /data trên Server}
+    \label{figure:samba-config-data}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Cấu hình quyền truy cập vào thư mục /data trên Server]
+[data]
+    path = /data
+    valid users = @bangiamdoc, @truongphong
+    write list = @bangiamdoc, @truongphong
+    read only = no
+\end{lstlisting}
+
+\begin{itemize}
+    \item[\textbf{Dòng 2}] Chỉ định đường dẫn của thư mục.
+    \item[\textbf{Dòng 3}] Danh sách những người dùng được quyền truy cập.
+    \item[\textbf{Dòng 4}] Danh sách người dùng có quyền ghi dữ liệu vào thư mục.
+    \item[\textbf{Dòng 5}] \texttt{read only} đặt thành \texttt{no} để cho phép ghi dữ liệu vào thư mục.
+\end{itemize}
+
+
+\subsubsection{Tất cả người dùng có thể truy cập vào thư mục cá nhân của họ (/home/<username>) trên Server}
+
+Ta thực hiện cấu hình quyền truy cập vào thư mục cá nhân của người dùng như \textit{Hình \ref{figure:samba-config-homes}}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/samba-config-homes.png}
+    \caption{Cấu hình quyền truy cập vào thư mục /home/<username> trên Server}
+    \label{figure:samba-config-homes}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Cấu hình quyền truy cập vào thư mục /home/<username> trên Server]
+[homes]
+    comment = Home Directories
+    browseable = no
+    read only = no
+    create mask = 0700
+    directory mask = 0700
+    valid users = %S
+\end{lstlisting}
+
+\begin{itemize}
+    \item [\textbf{Dòng 2}] Chỉ định đường dẫn của thư mục.
+    \item [\textbf{Dòng 3}] \texttt{browseable} đặt thành \texttt{no} để không hiển thị thư mục này.
+    \item [\textbf{Dòng 4}] \texttt{read only} đặt thành \texttt{no} để cho phép ghi dữ liệu vào thư mục.
+    \item [\textbf{Dòng 5}] \texttt{create mask} đặt thành \texttt{0700} để chỉ cho phép chủ sở hữu có quyền đọc, ghi và thực thi.
+    \item [\textbf{Dòng 6}] \texttt{directory mask} đặt thành \texttt{0700} để chỉ cho phép chủ sở hữu có quyền đọc, ghi và thực thi.
+    \item [\textbf{Dòng 7}] \texttt{valid users} đặt thành \texttt{\%S} để chỉ cho phép chủ sở hữu có quyền đọc, ghi và thực thi.
+\end{itemize}
+
+Sau đó, ta cần tạo mật khẩu dịch vụ samba cho các tài khoản bằng lệnh \texttt{smbpasswd -a <user-name>}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/smb-passwd-luffy.png}
+    \caption{Đặt mật khẩu dịch vụ samba cho tài khoản luffy}
+    \label{figure:smb-passwd-luffy}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Đặt mật khẩu dịch vụ samba cho tài khoản luffy}]
+sudo smbpasswd -a luffy
+\end{lstlisting}
+
+Cuối cùng, ta cần khởi động lại dịch vụ samba để áp dụng thay đổi.
+
+\begin{lstlisting}[language=bash, caption={Khởi động lại dịch vụ samba}]
+sudo systemctl restart smb
+\end{lstlisting}
+
+\subsubsection{Trên Desktop tạo ổ cứng ảo nối kết tới dịch vụ SAMBA trên Server}
+
+Ta có thể kết nối tới dịch vụ samba từ máy Desktop bằng cách sử dụng File Manager \textit{(Hình \ref{figure:samba-desktop})}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/samba-desktop.png}
+    \caption{Truy cập dịch vụ samba từ máy Desktop}
+    \label{figure:samba-desktop}
+\end{minipage}
+
+Ta có thể kiểm tra dịch vụ samba đã hoạt động đúng hay chưa bằng cách tạo một file trên máy Desktop và xem trên Server đã được tạo hay chưa.
+
+\begin{multicols}{2}
+    \begin{minipage}
+        {\linewidth}
+        \captionsetup{type=figure}
+        \centering
+        \includegraphics[width=\linewidth]{images/samba-created.png}
+        \caption{Kiểm tra tạo file bằng dịch vụ samba (máy Desktop)}
+        \label{figure:samba-created}
+    \end{minipage}
+
+    \begin{minipage}
+        {\linewidth}
+        \captionsetup{type=figure}
+        \centering
+        \includegraphics[width=\linewidth]{images/samba-created-server.png}
+        \caption{Kiểm tra tạo file bằng dịch vụ samba (máy Server)}
+        \label{figure:samba-created-server}
+    \end{minipage}
+\end{multicols}
 
 \end{document}
