@@ -55,6 +55,8 @@
 \listoftables
 \lstlistoflistings
 
+\newpage
+
 \section*{Mô tả bài tập}
 
 Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ thống mạng cục bộ phục vụ cho công việc của công ty như sau:
@@ -70,16 +72,7 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
 \subsection{(10\%) Sử dụng phần mềm VirtualBox cài đặt Server và Desktop:}
 
 \begin{itemize}
-    \item[--] Tạo 1 NAT Network tên "QTHT" có địa chỉ mạng là 192.168.1.0/24. Tắt dịch vụ DHCP có sẵn trên NAT Network "QTHT". \hfill \\
-          \begin{minipage}{\linewidth}
-              \captionsetup{type=figure}
-              \centering
-              \includegraphics[width=8cm]{images/create-nat.png}
-              \caption{Cấu hình NAT Network QTHT}
-          \end{minipage}
-
-          Để tắt dịch vụ DHCP mặc định của NAT Network trong VirtualBox, ta bỏ tích tùy chọn "Supports DHCP".
-
+    \item[--] Tạo 1 NAT Network tên "QTHT" có địa chỉ mạng là 192.168.1.0/24. Tắt dịch vụ DHCP có sẵn trên NAT Network "QTHT".
     \item[--] Tạo 2 máy ảo với thông tin như sau: \hfill \\
           \begin{minipage}{\linewidth}
               \begin{multicols}{2}
@@ -139,143 +132,160 @@ Công ty Straw Hat chuyên kinh doanh hải sản có nhu cầu xây dựng hệ
                   \end{minipage}
               \end{multicols}
           \end{minipage}
-          \begin{enumerate}
-              \item \textbf{Server có cấu hình như sau:}
-                    \begin{itemize}
-                        \item Hệ điều hành: CentOS 9
-                        \item CPU: 1 Core \textit{(Hình \ref{figure:server-processor})}
-                        \item Ram: 4GB \textit{(Hình \ref{figure:server-ram})}
-                        \item Disk: 20GB \textit{(Hình \ref{figure:server-disk})}
-                        \item Network: NAT Network "QTHT" \textit{(Hình \ref{figure:server-network-1})}
-                        \item IPv4: 192.168.1.2 \textit{(Hình \ref{figure:server-network-2})}
-                        \item Subnet mask: 255.255.255.0 \textit{(Hình \ref{figure:server-network-2})}
-                        \item Gateway: 192.168.1.1 \textit{(Hình \ref{figure:server-network-2})}
-                        \item DNS: 192.168.1.1 \textit{(Hình \ref{figure:server-network-2})}
-                    \end{itemize}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/server-processor.png}
-                        \caption{Số Core CPU cho Server}
-                        \label{figure:server-processor}
-                    \end{minipage}
-
-                    \begin{minipage}{\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/server-ram.png}
-                        \caption{Dung lượng RAM cho Server}
-                        \label{figure:server-ram}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/server-disk.png}
-                        \caption{Dung lượng ổ cứng cho Server}
-                        \label{figure:server-disk}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/server-network-1.png}
-                        \caption{Cấu hình mạng máy Server (1)}
-                        \label{figure:server-network-1}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/server-network-2.png}
-                        \caption{Cấu hình mạng máy Server (2)}
-                        \label{figure:server-network-2}
-                    \end{minipage}
-
-              \item \textbf{Máy Desktop có cấu hình như sau:}
-                    \begin{itemize}
-                        \item Hệ điều hành: Lubuntu 22.04.3 LTS (Jammy Jellyfish)
-                        \item CPU: 1 Core \textit{(Hình \ref{figure:desktop-processor})}
-                        \item Ram: 4GB \textit{(Hình \ref{figure:desktop-ram})}
-                        \item Disk: 20GB \textit{(Hình \ref{figure:desktop-disk})}
-                        \item Network: NAT Network "QTHT" \textit{(Hình \ref{figure:desktop-network})}
-                    \end{itemize}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/desktop-processor.png}
-                        \caption{Số Core CPU cho máy Desktop}
-                        \label{figure:desktop-processor}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/desktop-ram.png}
-                        \caption{Dung lượng RAM cho máy Desktop}
-                        \label{figure:desktop-ram}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/desktop-disk.png}
-                        \caption{Dung lượng ổ đĩa cho máy Desktop}
-                        \label{figure:desktop-disk}
-                    \end{minipage}
-
-                    \begin{minipage}
-                        {\linewidth}
-                        \captionsetup{type=figure}
-                        \centering
-                        \includegraphics[width=\linewidth]{images/desktop-network.png}
-                        \caption{Cấu hình mạng cho máy Desktop}
-                        \label{figure:desktop-network}
-                    \end{minipage}
-          \end{enumerate}
 
     \item[--] Trong quá trình cài hệ điều hành CentOS 9, tạo 1 tài khoản với username là <Mã số sinh viên>; firstname và lastname là họ tên của sinh viên. Cấp quyền quản trị (sudo) cho tài khoản. Sử dụng tài khoản vừa tạo để thực hiện bài tập tổng hợp (không dùng tài khoản root).
-    \item[--] Tắt dịch vụ tường lửa trên Server. \hfill
-          Để tắt tường lửa ta có thể sử dụng lệnh \texttt{systemctl} hoặc \texttt{service}.
-          Ở đây ta sẽ sử dụng lệnh \texttt{systemctl} để làm việc này \textit{(xem Hình \ref{figure:stop-firewalld}) và Hình \ref{figure:disable-firewalld}}. \\
+    \item[--] Tắt dịch vụ tường lửa trên Server.
+\end{itemize}
+
+\subsubsection{Tạo 1 NAT Network tên "QTHT"}
+
+\begin{minipage}{\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=8cm]{images/create-nat.png}
+    \caption{Cấu hình NAT Network QTHT}
+\end{minipage}
+
+Để tắt dịch vụ DHCP mặc định của NAT Network trong VirtualBox, ta bỏ tích tùy chọn "Supports DHCP".
+
+\subsubsection{Tạo 2 máy ảo Server và Desktop}
+
+\begin{enumerate}
+    \item \textbf{Server có cấu hình như sau:}
+          \begin{itemize}
+              \item Hệ điều hành: CentOS 9
+              \item CPU: 1 Core \textit{(Hình \ref{figure:server-processor})}
+              \item Ram: 4GB \textit{(Hình \ref{figure:server-ram})}
+              \item Disk: 20GB \textit{(Hình \ref{figure:server-disk})}
+              \item Network: NAT Network "QTHT" \textit{(Hình \ref{figure:server-network-1})}
+              \item IPv4: 192.168.1.2 \textit{(Hình \ref{figure:server-network-2})}
+              \item Subnet mask: 255.255.255.0 \textit{(Hình \ref{figure:server-network-2})}
+              \item Gateway: 192.168.1.1 \textit{(Hình \ref{figure:server-network-2})}
+              \item DNS: 192.168.1.1 \textit{(Hình \ref{figure:server-network-2})}
+          \end{itemize}
 
           \begin{minipage}
               {\linewidth}
               \captionsetup{type=figure}
               \centering
-              \includegraphics[width=\linewidth]{images/stop-firewalld.png}
-              \caption{Dừng tường lửa bằng cách sử dụng \texttt{systemctl stop firewalld}}
-              \label{figure:stop-firewalld}
+              \includegraphics[width=\linewidth]{images/server-processor.png}
+              \caption{Số Core CPU cho Server}
+              \label{figure:server-processor}
           \end{minipage}
 
-          \begin{lstlisting}[language=bash, caption=Dừng tường lửa]
+          \begin{minipage}{\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/server-ram.png}
+              \caption{Dung lượng RAM cho Server}
+              \label{figure:server-ram}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/server-disk.png}
+              \caption{Dung lượng ổ cứng cho Server}
+              \label{figure:server-disk}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/server-network-1.png}
+              \caption{Cấu hình mạng máy Server (1)}
+              \label{figure:server-network-1}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/server-network-2.png}
+              \caption{Cấu hình mạng máy Server (2)}
+              \label{figure:server-network-2}
+          \end{minipage}
+
+    \item \textbf{Máy Desktop có cấu hình như sau:}
+          \begin{itemize}
+              \item Hệ điều hành: Lubuntu 22.04.3 LTS (Jammy Jellyfish)
+              \item CPU: 1 Core \textit{(Hình \ref{figure:desktop-processor})}
+              \item Ram: 4GB \textit{(Hình \ref{figure:desktop-ram})}
+              \item Disk: 20GB \textit{(Hình \ref{figure:desktop-disk})}
+              \item Network: NAT Network "QTHT" \textit{(Hình \ref{figure:desktop-network})}
+          \end{itemize}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/desktop-processor.png}
+              \caption{Số Core CPU cho máy Desktop}
+              \label{figure:desktop-processor}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/desktop-ram.png}
+              \caption{Dung lượng RAM cho máy Desktop}
+              \label{figure:desktop-ram}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/desktop-disk.png}
+              \caption{Dung lượng ổ đĩa cho máy Desktop}
+              \label{figure:desktop-disk}
+          \end{minipage}
+
+          \begin{minipage}
+              {\linewidth}
+              \captionsetup{type=figure}
+              \centering
+              \includegraphics[width=\linewidth]{images/desktop-network.png}
+              \caption{Cấu hình mạng cho máy Desktop}
+              \label{figure:desktop-network}
+          \end{minipage}
+\end{enumerate}
+
+\subsubsection{Tắt tường lửa trên máy Server}
+
+Để tắt tường lửa ta có thể sử dụng lệnh \texttt{systemctl} hoặc \texttt{service}.
+Ở đây ta sẽ sử dụng lệnh \texttt{systemctl} để làm việc này \textit{(xem Hình \ref{figure:stop-firewalld}) và Hình \ref{figure:disable-firewalld}}. \\
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/stop-firewalld.png}
+    \caption{Dừng tường lửa bằng cách sử dụng \texttt{systemctl stop firewalld}}
+    \label{figure:stop-firewalld}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption=Dừng tường lửa]
 sudo systemctl stop firewalld
 \end{lstlisting}
 
-          \begin{minipage}
-              {\linewidth}
-              \captionsetup{type=figure}
-              \centering
-              \includegraphics[width=\linewidth]{images/disable-firewalld.png}
-              \caption{Ngăn tường lửa tự khởi động lại bằng cách sử dụng \texttt{systemctl disable firewalld}}
-              \label{figure:disable-firewalld}
-          \end{minipage}
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/disable-firewalld.png}
+    \caption{Ngăn tường lửa tự khởi động lại bằng cách sử dụng \texttt{systemctl disable firewalld}}
+    \label{figure:disable-firewalld}
+\end{minipage}
 
-          \begin{lstlisting}[language=bash, caption=Ngăn tường lửa tự khởi động lại]
+\begin{lstlisting}[language=bash, caption=Ngăn tường lửa tự khởi động lại]
 sudo systemctl disable firewalld
 \end{lstlisting}
 
-          Lệnh \texttt{systemctl stop firewalld} \textit{(Hình \ref{figure:stop-firewalld})} dùng để dừng tường lửa ngay lập tức và lệnh \texttt{systemctl disable firewalld} \textit{(Hình \ref{figure:disable-firewalld})} sẽ ngăn việc tường lửa tự khởi động lại sau khi reboot.
-\end{itemize}
+Lệnh \texttt{systemctl stop firewalld} \textit{(Hình \ref{figure:stop-firewalld})} dùng để dừng tường lửa ngay lập tức và lệnh \texttt{systemctl disable firewalld} \textit{(Hình \ref{figure:disable-firewalld})} sẽ ngăn việc tường lửa tự khởi động lại sau khi reboot.
 
 \subsection{(10\%) Tạo các người dùng và nhóm người dùng}
 
@@ -525,11 +535,11 @@ Cụ thể như sau:
           \begin{lstlisting}[language=bash, caption=Tạo thư mục \texttt{/data}]
 sudo mkdir /data
 \end{lstlisting}
-    \item \textbf{Ban giám đốc} có toàn quyền (read, write, execute) trên thư mục \texttt{/data}
+    \item Ban giám đốc có toàn quyền (read, write, execute) trên thư mục \texttt{/data}
           \begin{lstlisting}[language=bash, caption=Phân quyền cho ban giám đốc]
 sudo setfacl -m g:bangiamdoc:rwx /data
 \end{lstlisting}
-    \item  \textbf{Trưởng phòng} có quyền read và execute trên thư mục \texttt{/data}
+    \item  Trưởng phòng có quyền read và execute trên thư mục \texttt{/data}
           \begin{lstlisting}[language=bash, caption=Phân quyền cho trưởng phòng]
 sudo groupadd truongphong
 sudo usermod -aG truongphong zoro
@@ -986,5 +996,223 @@ Ta có thể kiểm tra dịch vụ samba đã hoạt động đúng hay chưa b
         \label{figure:samba-created-server}
     \end{minipage}
 \end{multicols}
+
+\subsection{(5\%) Cài đặt và cấu hình dịch vụ DNS trên Server để phân giải tên miền strawhat.com}
+
+\begin{itemize}
+    \item[--] Tên miền: \url{www.strawhat.com} <----> IP: 192.168.1.2 (Server IP)
+    \item[--] Tên miền: \url{gateway.strawhat.com} <----> IP: 192.168.1.1
+\end{itemize}
+
+\subsubsection{Cài đặt dịch vụ DNS}
+
+Để cài đặt dịch vụ DNS, ta sử dụng lệnh \texttt{sudo dnf install bind bind-utils}.
+
+\subsubsection{Cấu hình máy chủ DNS trên máy Server}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/forward-strawhat-com.png}
+    \caption{Nội dung file /var/named/forward.strawhat.com}
+    \label{figure:forward-strawhat-com}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Nội dung file /var/named/forward.strawhat.com}]
+$TTL 1D
+@       IN SOA      @       strawhat.com. (
+                                0       ; serial
+                                1D      ; refresh
+                                1H      ; retry
+                                1W      ; expire
+                                3H )    ; minimum
+@       IN NS       dns.strawhat.com.
+@       IN A        192.168.1.2
+www     IN A        192.168.1.2
+gateway IN A        192.168.1.1
+\end{lstlisting}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/reverse-strawhat-com.png}
+    \caption{Nội dung file /var/named/reverse.strawhat.com}
+    \label{figure:reverse-strawhat-com}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Nội dung file /var/named/reverse.strawhat.com}]
+$TTL 1D
+@       IN SOA      @       strawhat.com. (
+                                0       ; serial
+                                1D      ; refresh
+                                1H      ; retry
+                                1W      ; expire
+                                3H )    ; minimum
+
+@       IN NS       dns.strawhat.com.
+dns     IN A        192.168.1.2
+2       IN PTR      dns.strawhat.com.
+1       IN PTR      gateway.strawhat.com.
+\end{lstlisting}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/named-conf.png}
+    \caption{Nội dung file /etc/named.conf}
+    \label{figure:named-conf}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Nội dung file /etc/named.conf}]
+...
+
+zone "." IN {
+    ...
+};
+
+zone "strawhat.com" IN {
+    type master;
+    file "forward.strawhat.com";
+    allow-update { none; };
+};
+
+zone "1.168.192.in-addr.arpa" IN {
+    type master;
+    file "reverse.strawhat.com";
+    allow-update { none; };
+};
+
+...
+\end{lstlisting}
+
+\subsubsection{Khởi động dịch vụ DNS}
+
+Ta cần khởi động dịch vụ DNS để áp dụng thay đổi.
+
+\begin{lstlisting}[language=bash, caption={Khởi động dịch vụ DNS}]
+sudo systemctl restart named
+sudo systemctl enable named
+\end{lstlisting}
+
+\subsubsection{Kiểm tra trên máy Desktop}
+
+Ta sử dụng máy Desktop để kiểm tra xem máy chủ DNS đã được cấu hình đúng hay chưa \textit{(Hình \ref{figure:test-dns-desktop})}.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/test-dns-desktop.png}
+    \caption{Kiểm tra DNS trên máy Desktop}
+    \label{figure:test-dns-desktop}
+\end{minipage}
+
+\subsection{(5\%) Sử dụng dịch vụ cron và shell script tự động thực hiện công việc sao lưu dữ liệu mỗi ngày, mỗi tuần, mỗi tháng trên Server}
+
+\begin{itemize}
+    \item[--] Các thư mục cần sao lưu sao lưu: /home, /data, /etc.
+    \item[--] Nơi lưu dữ liệu sao lưu: /mnt/backup.
+    \item[--] Sao lưu mỗi ngày: thực hiện vào lúc 23:59 từ thứ 2 đến thứ 7, dữ liệu sẽ được nén lại và lưu với tên như sau: backup\_<thứ> (ví dụ: backup\_monday).
+    \item[--] Sao lưu mỗi tuần: thực hiện vào lúc 23:59 ngày chủ nhật hàng tuần, dữ liệu sẽ được nén lại và lưu với tên như sau: backup\_week<thứ tự tuần> (ví dụ: backup\_week1).
+    \item[--] Sao lưu mỗi tháng: thực hiện vào lúc 23:59 ngày 1 hằng tháng, dữ liệu sẽ được nén lại và lưu với tên backup\_month1 nếu là tháng lẻ, backup\_month2 nếu là tháng chẵn.
+\end{itemize}
+
+\subsubsection{Tạo thư mục sao lưu dữ liệu}
+
+Ta sẽ tạo thư mục \texttt{/mnt/backup} để lưu trữ dữ liệu sao lưu.
+
+\begin{lstlisting}[language=bash, caption={Tạo thư mục sao lưu dữ liệu}]
+sudo mkdir /mnt/backup
+\end{lstlisting}
+
+\subsubsection{Viết script backup}
+
+Ta sẽ viết một script để thực hiện sao lưu dữ liệu theo các bước sau:
+\begin{itemize}
+    \item[--] Tạo một biến lưu trữ tên file theo yêu cầu
+    \item[--] Nén các thư mục /home /data /etc
+\end{itemize}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/backup_day.png}
+    \caption{Script backup mỗi ngày}
+    \label{figure:backup_day}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Script backup mỗi ngày}]
+filename="/mnt/backup/backup_$(date +%A).zip"
+echo "Compressing... $filename"
+zip -qr $filename /home /data /etc
+echo "Backup finish!"
+\end{lstlisting}
+
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/backup-week.png}
+    \caption{Script backup mỗi tuần}
+    \label{figure:backup-week}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Script backup mỗi tuần}]
+filename="/mnt/backup/backup_week$(date +%U).zip"
+echo "Compressing... $filename"
+zip -qr $filename /home /data /etc
+echo "Backup finish!"
+\end{lstlisting}
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/backup-month.png}
+    \caption{Script backup mỗi tháng}
+    \label{figure:backup-month}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Script backup mỗi tháng}]
+month=$(date +%m)
+echo "Current month is: $month"
+
+if ((month % 2 == 0))
+then
+    filename="/mnt/backup/backup_month2.zip"
+else
+    filename="/mnt/backup/backup_month1.zip"
+fi
+
+echo "Compressing... $filename"
+zip -qr $filename /home /data /etc
+echo "Backup finish!"
+\end{lstlisting}
+
+Ta sẽ lưu các script này vào các file \texttt{backup\_day.sh}, \texttt{backup\_week.sh}, \texttt{backup\_month.sh} trong thư mục \texttt{/mnt/backup}.
+
+\subsubsection{Cấu hình cron}
+
+Ta sẽ cấu hình cron để thực hiện script backup theo yêu cầu.
+
+\begin{minipage}
+    {\linewidth}
+    \captionsetup{type=figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/crontab.png}
+    \caption{Cấu hình cron}
+    \label{figure:crontab}
+\end{minipage}
+
+\begin{lstlisting}[language=bash, caption={Cấu hình cron}]
+59  23  *   *   1-6 (/mnt/backup/backup_day.sh)
+59  23  *   *   0   (/mnt/backup/backup_week.sh)
+59  23  1   *   *   (/mnt/backup/backup_month.sh)
+\end{lstlisting}
 
 \end{document}
